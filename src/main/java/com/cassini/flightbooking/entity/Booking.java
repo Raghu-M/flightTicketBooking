@@ -21,6 +21,8 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bookingId")
 	private Long bookingId;
 	
+	private String flightClass;
+	
 	@ManyToOne
 	@JoinColumn(name  = "flight_travel_id")
 	private FlightTravel flightTravel;
