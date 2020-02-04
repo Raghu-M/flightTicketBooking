@@ -10,8 +10,6 @@ import lombok.Setter;
 @Setter
 public class TravellerRequestDto {
 	
-	
-	private Integer travellerId;
 	private String travellerName;
 	private String email;
 	private LocalDate dateOfBirth;

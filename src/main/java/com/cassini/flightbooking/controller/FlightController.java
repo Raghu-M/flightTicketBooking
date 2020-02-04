@@ -20,11 +20,12 @@ import com.cassini.flightbooking.util.ApplicationConstant;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author Raghu
+ * This Controller is having the flight related functionalities. This
+ * Controller will call the flightService in which the implementations are
+ * done.
  * 
- *         this class is used to get the flights using from location, to location
- *         and date.
- * 
+ * @API It has a method which will get the flights.
+ * @author Raghu 
  */
 
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
@@ -32,7 +33,10 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/flights")
 @Slf4j
 public class FlightController {
-
+	
+	/**
+	 * This will inject all the implementations in the flightService.
+	 */
 	@Autowired
 	FlightService flightService;
 

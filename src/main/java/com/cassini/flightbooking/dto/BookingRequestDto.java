@@ -12,6 +12,8 @@ public class BookingRequestDto {
 	private Integer flightTravelId;
 	private Integer numberOfSeats;
 	private String flightClass;
+	private String paymentMode;
+	private Double totalAmount;
 	List<TravellerRequestDto> traveller;
 	
 

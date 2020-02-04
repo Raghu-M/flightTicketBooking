@@ -18,5 +18,6 @@ public class FlightResponseDto {
 	private String fromLocation;
 	private String toLocation;
 	private LocalDate date;
+	private Integer flightTravelId;
 
 }

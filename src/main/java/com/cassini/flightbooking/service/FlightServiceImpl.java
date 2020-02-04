@@ -13,6 +13,7 @@ import com.cassini.flightbooking.dto.FlightResponseDto;
 import com.cassini.flightbooking.entity.FlightTravel;
 import com.cassini.flightbooking.entity.Location;
 import com.cassini.flightbooking.repository.FlightTravelRepository;
+import com.cassini.flightbooking.util.ApplicationConstant;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,21 +29,23 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class FlightServiceImpl implements FlightService {
+	
+	/**
+	 * This will inject all the methods in the FlightTravelRepository.
+	 */
 
 	@Autowired
 	FlightTravelRepository flightTravelRepository;
 
 	/**
-	 * @author Raghu
-	 * 
 	 *         this API is used to get the flights using from location, to location
 	 *         and date.
 	 * 
 	 * @param from location, to location, date.
 	 * @return list of flights.
+	 * @author Raghu
 	 * 
 	 */
-
 	@Override
 	public List<FlightResponseDto> getFlights(FlightRequestDto flightRequestDto) {
 		log.info("getFlights controller ---> getting flights... ");
@@ -52,11 +55,11 @@ public class FlightServiceImpl implements FlightService {
 		toLocation.setLocationId(flightRequestDto.getToLocationId());
 		List<FlightTravel> flights = flightTravelRepository.findByFromLocationAndToLocationAndDate(fromLocation,
 				toLocation, flightRequestDto.getDate());
-		if (flightRequestDto.getFlightClass().equals("economy")) {
+		if (flightRequestDto.getFlightClass().equals(ApplicationConstant.FLIGHT_CLASS_ECONOMY)) {
 			flights = flights.stream()
 					.filter(flight -> flight.getEconomySeatAvailable() >= flightRequestDto.getNumberOfSeats())
 					.collect(Collectors.toList());
-		} else if (flightRequestDto.getFlightClass().equals("business")) {
+		} else if (flightRequestDto.getFlightClass().equals(ApplicationConstant.FLIGHT_CLASS_BUSINESS)) {
 			flights = flights.stream()
 					.filter(flight -> flight.getBusinessSeatAvailable() >= flightRequestDto.getNumberOfSeats())
 					.collect(Collectors.toList());

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cassini.flightbooking.dto.BookResponseDto;
 import com.cassini.flightbooking.dto.BookingRequestDto;
 import com.cassini.flightbooking.dto.BookingResponseDto;
 import com.cassini.flightbooking.dto.TravellerDto;
@@ -68,7 +69,7 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	@Transactional
-	public Long saveBookingDetails(BookingRequestDto bookingRequestDto) {
+	public BookResponseDto saveBookingDetails(BookingRequestDto bookingRequestDto) {
 
 		Optional<FlightTravel> fligtTravel = flightTravelRepository.findById(bookingRequestDto.getFlightTravelId());
 
@@ -96,8 +97,9 @@ public class BookingServiceImpl implements BookingService {
 			BeanUtils.copyProperties(t, traveller);
 			travellerRepository.save(traveller);
 		});
-		
-		return booking.getBookingId();
+		BookResponseDto bookResponseDto = new BookResponseDto();
+		bookResponseDto.setBookingId(booking.getBookingId());
+		return bookResponseDto;
 
 	}
 
