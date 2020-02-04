@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cassini.flightbooking.controller.BookingController;
 import com.cassini.flightbooking.entity.Location;
 import com.cassini.flightbooking.repository.LocationRepository;
 

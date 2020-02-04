@@ -6,9 +6,10 @@ import javax.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+
 @Getter
 @Setter
+@Entity
 public class Location {
 	
 	@Id

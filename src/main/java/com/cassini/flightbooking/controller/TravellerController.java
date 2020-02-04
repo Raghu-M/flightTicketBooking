@@ -11,5 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/travellers")
 @Slf4j
 public class TravellerController {
+	
 
 }

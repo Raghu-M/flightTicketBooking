@@ -8,5 +8,7 @@ import com.cassini.flightbooking.entity.Booking;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long>{
+	
+	
 
 }
