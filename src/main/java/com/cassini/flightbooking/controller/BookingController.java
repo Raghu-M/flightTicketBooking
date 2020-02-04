@@ -1,7 +1,5 @@
 package com.cassini.flightbooking.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -40,7 +38,7 @@ public class BookingController {
 	 */
 	@GetMapping("/{bookingId}")
 	public ResponseEntity<BookingResponseDto> getBookingDetailsById(@PathVariable("bookingId") Long bookingId) throws RecordNotFoundException {
-		log.info("starting getBookingDetailsById method , inside LocationController");
+		log.info("starting getBookingDetailsById method , inside BookingController");
 		if (bookingId == null) {
 			throw new NullPointerException("Booking Id missing");
 		}else {
